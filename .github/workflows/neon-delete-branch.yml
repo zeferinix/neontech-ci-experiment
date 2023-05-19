@@ -1,0 +1,14 @@
+name: Delete Neon Branch with GitHub Actions Demo
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  delete-neon-branch-by-name:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: neondatabase/delete-branch-by-name-action@main
+        id: delete-branch-by-name
+        with:
+          project_id: ${{ secrets.NEON_PROJECT_ID }}
+          branch_name: ${{ github.ref_name }}
+          api_key: ${{ secrets.NEON_API_KEY }}
