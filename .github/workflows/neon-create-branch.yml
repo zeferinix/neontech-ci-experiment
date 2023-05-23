@@ -10,7 +10,7 @@ jobs:
         id: create-branch
         with:
           project_id: ${{ secrets.NEON_PROJECT_ID }}
-          parent_branch_id: main
+          parent_branch_id: ${{ secrets.NEON_MAIN_BRANCH_ID }}
           branch_name: ${{ github.ref_name }}
           api_key: ${{ secrets.NEON_API_KEY }}
       - run: echo project_id ${{ steps.create-branch.outputs.project_id}}
